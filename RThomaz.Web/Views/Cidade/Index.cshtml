@@ -1,0 +1,109 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model CidadeIndexModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+           
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(CidadeResource.FilterPaisTitle)            
+                <select id="paisId" name="paisId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (Pais pais in Model.Paises)
+                    {
+                        if (Model.SelectedPaisId == pais.PaisId)
+                        {
+                            <option selected="selected" value="@pais.PaisId">@pais.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@pais.PaisId">@pais.Nome</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(CidadeResource.FilterEstadoTitle)            
+                <select id="estadoId" name="estadoId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (Estado estado in Model.Estados)
+                    {
+                        if (Model.SelectedEstadoId == estado.EstadoId)
+                        {
+                            <option selected="selected" value="@estado.EstadoId">@estado.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@estado.EstadoId">@estado.Nome</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>  
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @CidadeResource.PaisTitle
+                    </th>
+                    <th>
+                        @CidadeResource.EstadoTitle
+                    </th>
+                    <th>
+                        @CidadeResource.NomeTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.CidadeId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @item.Estado.Pais.Nome
+                        </td> 
+                        <td>
+                            @item.Estado.Nome
+                        </td> 
+                        <td>
+                            @item.Nome
+                        </td> 
+                        <td class="IndexDataTableTdDetailStyle">
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, "Detail", new { id = item.CidadeId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input onclick="window.location='@Url.Action("Detail", Model.ControllerName)'" type="button" value="@CommonResource.ButtonNewTitle" class="buttonSmall"/>  
+        
+    </fieldset>
+}

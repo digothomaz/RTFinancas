@@ -1,0 +1,40 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model LancamentoDespesaDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@LancamentoDespesaResource.LegendDefault</legend>
+        
+        @if (Model.Entity.LancamentoId == 0)
+        {
+            @Html.Hidden("model.Entity.LancamentoId", Model.Entity.LancamentoId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.LancamentoId", @Model.Entity.LancamentoId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }                       
+        
+        @Html.Partial("_LancamentoCommonDetailLayout")     
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>      
+    
+}

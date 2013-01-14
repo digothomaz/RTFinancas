@@ -1,0 +1,74 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+           
+@if (Model.Entity.LancamentoId == 0)
+{
+    @Html.Hidden("model.Entity.LancamentoId", ((Lancamento)Model.Entity).LancamentoId)             
+}
+else
+{
+    <div class="FormFieldStyle">
+        @Html.Label(CommonResource.FieldIdTitle)
+        @Html.TextBox("model.Entity.LancamentoId", ((Lancamento)Model.Entity).LancamentoId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+    </div>
+}                            
+
+<div class="FormFieldStyle">
+    @Html.Label(Model.Entity is LancamentoDespesa ? LancamentoDespesaResource.ContaTitle : LancamentoReceitaResource.ContaTitle)
+    <select id="model.SelectedContaId" name="model.SelectedContaId" class="fieldMedium">
+        <option value="">@{ var defaultOptionContaTitle = Model.Entity is LancamentoDespesa ? LancamentoDespesaResource.DropDownContaDefaultOption : LancamentoReceitaResource.DropDownContaDefaultOption; }@defaultOptionContaTitle</option>
+        @foreach (Conta conta in Model.Contas)
+        {
+            if (Model.SelectedContaId == conta.ContaId)
+            {
+                <option selected="selected" value="@conta.ContaId">@conta.Nome</option>
+            }
+            else
+            {
+                <option value="@conta.ContaId">@conta.Nome</option>
+            }
+        }
+    </select>       
+</div>       
+
+<div class="FormFieldStyle">
+    @Html.Label(Model.Entity is LancamentoDespesa ? LancamentoDespesaResource.PessoaTitle : LancamentoReceitaResource.PessoaTitle)
+    <select id="model.SelectedPessoaId" name="model.SelectedPessoaId" class="fieldMedium">
+        <option value="">@{ var defaultOptionPessoaTitle = Model.Entity is LancamentoDespesa ? LancamentoDespesaResource.DropDownPessoaDefaultOption : LancamentoReceitaResource.DropDownPessoaDefaultOption; }@defaultOptionPessoaTitle</option>
+        @foreach (Pessoa pessoa in Model.Pessoas)
+        {
+            var pessoaNome = pessoa is PessoaFisica ? ((PessoaFisica)pessoa).Nome : ((PessoaJuridica)pessoa).NomeFantasia;
+             
+            if (Model.SelectedPessoaId == pessoa.PessoaId)
+            {
+                <option selected="selected" value="@pessoa.PessoaId">@pessoaNome</option>
+            }
+            else
+            {
+                <option value="@pessoa.PessoaId">@pessoaNome</option>
+            }
+        }
+    </select>       
+</div>       
+
+<div class="FormFieldStyle">
+    @Html.Label(LancamentoResource.DataLancamentoTitle)
+    @Html.TextBox("Model.Entity.DataLancamento", ((Lancamento)Model.Entity).DataLancamento.HasValue ? ((Lancamento)Model.Entity).DataLancamento.Value.ToShortDateString() : null, new { @class = "fieldSmall datepicker" })     
+</div>    
+
+<div class="FormFieldStyle">
+    @Html.Label(LancamentoResource.ValorLancamentoTitle)
+    @Html.TextBox("Model.Entity.ValorLancamento", ((Lancamento)Model.Entity).ValorLancamento, new { @class = "fieldSmall" })     
+</div>  
+
+<div class="FormFieldStyle">
+    @Html.Label(LancamentoResource.NumeroTitle)
+    @Html.TextBox("Model.Entity.Numero", ((Lancamento)Model.Entity).Numero, new { @class = "fieldMedium" })     
+</div>   
+
+<div class="FormFieldStyle">
+    @Html.Label(LancamentoResource.HistoricoTitle)
+    @Html.TextBox("Model.Entity.Historico", ((Lancamento)Model.Entity).Historico, new { @class = "fieldMedium" })     
+</div> 

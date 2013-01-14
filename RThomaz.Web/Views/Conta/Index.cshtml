@@ -1,0 +1,144 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model ContaIndexModel
+      
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+           
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(ContaResource.FilterTipoContaTitle)            
+                <select id="tipoContaId" name="tipoContaId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (KeyValuePair<byte, string> tipoConta in Model.ListOfTipoConta)
+                    {
+                        if (Model.SelectedTipoContaId == tipoConta.Key)
+                        {
+                            <option selected="selected" value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(ContaResource.FilterGrupoContaTitle)            
+                <select id="grupoContaId" name="grupoContaId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (GrupoConta grupoConta in Model.ListOfGrupoConta)
+                    {
+                        if (Model.SelectedGrupoContaId == grupoConta.GrupoContaId)
+                        {
+                            <option selected="selected" value="@grupoConta.GrupoContaId">@grupoConta.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@grupoConta.GrupoContaId">@grupoConta.Nome</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>        
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @ContaResource.TipoContaTitle
+                    </th>
+                    <th>
+                        @ContaResource.GrupoContaTitle
+                    </th>
+                    <th>
+                        @ContaResource.NomeTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.ContaId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @{ var tipoContaDescription = EnumHelper.GetEnumDescription<TipoConta>(item.TipoContaId); }
+                            @tipoContaDescription
+                        </td> 
+                        <td>
+                            @item.GrupoConta.Nome
+                        </td> 
+                        <td>
+                            @item.Nome
+                        </td> 
+                        <td class="IndexDataTableTdDetailStyle">
+                            @{
+                                string acao = string.Empty;
+                                
+                                switch ((TipoConta)item.TipoContaId)
+                                {
+                                    case TipoConta.Dinheiro:
+                                        acao = "../ContaDinheiro/Detail";
+                                        break;
+                                    case TipoConta.ContaCorrente:
+                                        acao = "../ContaCorrente/Detail";
+                                        break;
+                                    case TipoConta.Poupanca:
+                                        acao = "../ContaPoupanca/Detail";
+                                        break;
+                                    case TipoConta.Investimento:
+                                        acao = "../ContaInvestimento/Detail";
+                                        break;
+                                    case TipoConta.CartaoCredito:
+                                        acao = "../ContaCartaoCredito/Detail";
+                                        break;
+                                    case TipoConta.CobrancaBancaria:
+                                        acao = "../ContaCobrancaBancaria/Detail";
+                                        break;
+                                    default:
+                                        break;
+                                }                                                                    
+                            }
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, acao, new { id = item.ContaId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaDinheiro")'" type="button" value="@ContaResource.NovoContaDinheiroTitle"/>  
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaCorrente")'" type="button" value="@ContaResource.NovoContaCorrenteTitle"/>  
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaPoupanca")'" type="button" value="@ContaResource.NovoContaPoupancaTitle"/>  
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaCartaoCredito")'" type="button" value="@ContaResource.NovoContaCartaoCreditoTitle"/>  
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaCobrancaBancaria")'" type="button" value="@ContaResource.NovoContaCobrancaBancariaTitle"/>          
+        <input class="buttonLarge" onclick="window.location='@Url.Action("Detail", "ContaInvestimento")'" type="button" value="@ContaResource.NovoContaInvestimentoTitle"/>  
+
+    </fieldset>
+}

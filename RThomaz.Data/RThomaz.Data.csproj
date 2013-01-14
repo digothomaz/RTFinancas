@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C8EA669-DA3C-439D-892D-23E999B39DBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RThomaz.Data</RootNamespace>
+    <AssemblyName>RThomaz.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\CidadeBusiness.cs" />
+    <Compile Include="Business\BancoBusiness.cs" />
+    <Compile Include="Business\ContaBusiness.cs" />
+    <Compile Include="Business\ContaCorrenteBusiness.cs" />
+    <Compile Include="Business\ContaCobrancaBancariaBusiness.cs" />
+    <Compile Include="Business\ContaDinheiroBusiness.cs" />
+    <Compile Include="Business\ContaPoupancaBusiness.cs" />
+    <Compile Include="Business\ContaInvestimentoBusiness.cs" />
+    <Compile Include="Business\ContaCartaoCreditoBusiness.cs" />
+    <Compile Include="Business\LancamentoDespesaBusiness.cs" />
+    <Compile Include="Business\LancamentoReceitaBusiness.cs" />
+    <Compile Include="Business\LancamentoBusiness.cs" />
+    <Compile Include="Business\PessoaJuridicaBusiness.cs" />
+    <Compile Include="Business\PessoaFisicaBusiness.cs" />
+    <Compile Include="Business\PessoaBusiness.cs" />
+    <Compile Include="Business\TipoTelefoneBusiness.cs" />
+    <Compile Include="Business\TipoHomePageBusiness.cs" />
+    <Compile Include="Business\TipoEmailBusiness.cs" />
+    <Compile Include="Business\TipoEnderecoBusiness.cs" />
+    <Compile Include="Business\GrupoContaBusiness.cs" />
+    <Compile Include="Business\EstadoBusiness.cs" />
+    <Compile Include="Business\PaisBusiness.cs" />
+    <Compile Include="Business\UsuarioBusiness.cs" />
+    <Compile Include="Common\EnumHelper.cs" />
+    <Compile Include="Common\PagedList.cs" />
+    <Compile Include="Enums\TipoLancamento.cs" />
+    <Compile Include="Enums\Sexo.cs" />
+    <Compile Include="Enums\TipoPessoa.cs" />
+    <Compile Include="Enums\TipoConta.cs" />
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ExceptionResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

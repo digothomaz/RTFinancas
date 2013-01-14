@@ -1,0 +1,116 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model PessoaIndexModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+           
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(PessoaResource.FilterTipoPessoaTitle)            
+                <select id="tipoPessoaId" name="tipoPessoaId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (KeyValuePair<byte, string> tipoPessoa in Model.ListOfTipoPessoa)
+                    {
+                        if (Model.SelectedTipoPessoaId == tipoPessoa.Key)
+                        {
+                            <option selected="selected" value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>        
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @PessoaResource.TipoPessoaTitle
+                    </th>
+                    <th>
+                        @PessoaResource.NomeTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.PessoaId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @{ var tipoPessoaDescription = EnumHelper.GetEnumDescription<TipoPessoa>(item.TipoPessoaId); }
+                            @tipoPessoaDescription
+                        </td> 
+                        <td>
+                            @{
+                                var nome = string.Empty;
+                                
+                                if (item is PessoaFisica)
+                                {
+                                    nome = ((PessoaFisica)item).Nome;
+                                }
+                                else if(item is PessoaJuridica)
+                                {
+                                    nome = ((PessoaJuridica)item).NomeFantasia;
+                                }
+                            }
+                            @nome
+                        </td> 
+                        <td class="IndexDataTableTdDetailStyle">
+                            @{
+                                string acao = string.Empty;
+
+                                switch ((TipoPessoa)item.TipoPessoaId)
+                                {
+                                    case TipoPessoa.Fisica:
+                                        acao = "../PessoaFisica/Detail";
+                                        break;
+                                    case TipoPessoa.Juridica:
+                                        acao = "../PessoaJuridica/Detail";
+                                        break;
+                                    default:
+                                        break;
+                                }                                                                    
+                            }
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, acao, new { id = item.PessoaId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input onclick="window.location='@Url.Action("Detail", "PessoaFisica")'" type="button" value="@PessoaResource.NovoPessoaFisicaTitle"/>  
+        <input onclick="window.location='@Url.Action("Detail", "PessoaJuridica")'" type="button" value="@PessoaResource.NovoPessoaJuridicaTitle"/>  
+
+    </fieldset>
+}

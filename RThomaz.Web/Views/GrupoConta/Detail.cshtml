@@ -1,0 +1,70 @@
+﻿@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model GrupoContaDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@GrupoContaResource.LegendDefault</legend>
+                
+        @if (Model.Entity.GrupoContaId == 0)
+        {
+            @Html.Hidden("model.Entity.GrupoContaId", Model.Entity.GrupoContaId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.GrupoContaId", @Model.Entity.GrupoContaId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(GrupoContaResource.TipoContaTitle)
+            @if (Model.Entity.GrupoContaId == 0)
+            {
+                <select id="model.SelectedTipoContaId" name="model.SelectedTipoContaId" class="fieldMedium">
+                    <option value="">@GrupoContaResource.DropDownTipoContaDefaultOption</option>
+                    @foreach (KeyValuePair<byte, string> tipoConta in Model.ListOfTipoConta)
+                    {
+                        if (Model.SelectedTipoContaId == tipoConta.Key)
+                        {
+                            <option selected="selected" value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                    }
+                </select>  
+            }
+            else
+            {
+                @Html.Hidden("model.SelectedTipoContaId", Model.Entity.TipoContaId)
+                <select disabled="disabled" class="fieldMedium">
+                    @{ var tipoConta = EnumHelper.GetEnumDescription<TipoConta>(Model.SelectedTipoContaId); }
+                    <option selected="selected">@tipoConta</option>
+                </select>                  
+            }                
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(GrupoContaResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}

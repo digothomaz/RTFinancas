@@ -1,0 +1,16 @@
+﻿@using RThomaz.Web.Content.Resources
+
+<table class="IndexHeaderTableStyle">
+	<tr>
+		<td class="IndexHeaderTdTitleStyle">
+			@Model.Title
+		</td>
+		<td class="IndexHeaderTdLabelPageSizeStyle">
+			@Html.Label(IndexHeaderResource.PageSizeTitle)
+		</td>
+		<td class="IndexHeaderTdDropDownPageSizeStyle">
+			@Html.DropDownList("pageSize", Model.ItemsPerPage as SelectList, new { onchange = "form.submit();" })    
+		</td>
+	</tr>
+</table>
+

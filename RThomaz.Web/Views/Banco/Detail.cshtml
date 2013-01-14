@@ -1,0 +1,48 @@
+﻿@using RThomaz.Web.Resources
+@using RThomaz.Web.Content.Resources
+
+@model RThomaz.Web.Models.BancoDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@BancoResource.LegendDefault</legend>
+                
+        @if (Model.Entity.BancoId == 0)
+        {
+            @Html.Hidden("model.Entity.BancoId", Model.Entity.BancoId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.BancoId", @Model.Entity.BancoId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(BancoResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(BancoResource.NumeroTitle)
+            @Html.TextBox("Model.Entity.Numero", Model.Entity.Numero, new { @class = "fieldSmall" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(BancoResource.SiteTitle)
+            @Html.TextBox("Model.Entity.Site", Model.Entity.Site, new { @class = "fieldLarge" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}

@@ -1,0 +1,60 @@
+﻿@using RThomaz.Web.Content.Resources;
+
+<div class="IndexFooterDivStyle">
+
+    <input id="pageNumber" name="currentPageNumber" type="hidden" value="@Model.PagedList.PageNumber" />
+    <input id="pageCount" name="pageCount" type="hidden" value="@Model.PagedList.PageCount" />
+                     
+    <div>
+
+        <center>
+        
+            @if (Model.PagedList.PageCount > 0 && !Model.PagedList.IsFirstPage)
+            { 
+                <button name="MoveFirstPage" value="MoveFirstPage">@IndexFooterResource.MoveFirstPageButtonTitle</button>           
+            }
+            else
+            {
+                <button name="MoveFirstPage" value="MoveFirstPage" disabled="disabled">@IndexFooterResource.MoveFirstPageButtonTitle</button>           
+            }
+
+	        @if (Model.PagedList.PageCount > 0 && Model.PagedList.HasPreviousPage)
+            { 
+                <button name="MovePreviousPage" value="MovePreviousPage">@IndexFooterResource.MovePreviousPageButtonTitle</button>           
+            }
+            else
+            {
+                <button name="MovePreviousPage" value="MovePreviousPage" disabled="disabled">@IndexFooterResource.MovePreviousPageButtonTitle</button>           
+            }
+             
+            @string.Format(IndexFooterResource.PageDescription, Model.PagedList.PageNumber, Model.PagedList.PageCount)
+                 
+	        @if (Model.PagedList.PageCount > 0 && Model.PagedList.HasNextPage)
+            { 
+                <button name="MoveNextPage" value="MoveNextPage">@IndexFooterResource.MoveNextPageButtonTitle</button>           
+            }
+            else
+            {
+                <button name="MoveNextPage" value="MoveNextPage" disabled="disabled">@IndexFooterResource.MoveNextPageButtonTitle</button>           
+            }
+
+            @if (Model.PagedList.PageCount > 0 && !Model.PagedList.IsLastPage)
+            { 
+                <button name="MoveLastPage" value="MoveLastPage">@IndexFooterResource.MoveLastPageButtonTitle</button>           
+            }
+            else
+            {
+                <button name="MoveLastPage" value="MoveLastPage" disabled="disabled">@IndexFooterResource.MoveLastPageButtonTitle</button>           
+            }          
+          
+        </center> 
+               
+    </div>     
+
+    <div>
+        <center>
+            @string.Format(IndexFooterResource.QueryCount, Model.PagedList.QueryCount)
+        </center>                
+    </div>     
+
+</div>

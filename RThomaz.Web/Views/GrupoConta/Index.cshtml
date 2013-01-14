@@ -1,0 +1,88 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model GrupoContaIndexModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+           
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(GrupoContaResource.FilterTipoContaTitle)            
+                <select id="tipoContaId" name="tipoContaId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (KeyValuePair<byte, string> tipoConta in Model.ListOfTipoConta)
+                    {
+                        if (Model.SelectedTipoContaId == tipoConta.Key)
+                        {
+                            <option selected="selected" value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoConta.Key">@tipoConta.Value</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>      
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @GrupoContaResource.TipoContaTitle
+                    </th>
+                    <th>
+                        @GrupoContaResource.NomeTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.GrupoContaId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @{ var tipoContaDescription = EnumHelper.GetEnumDescription<TipoConta>(item.TipoContaId); }
+                            @tipoContaDescription
+                        </td> 
+                        <td>
+                            @item.Nome
+                        </td> 
+                        <td class="IndexDataTableTdDetailStyle">
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, "Detail", new { id = item.GrupoContaId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input onclick="window.location='@Url.Action("Detail", Model.ControllerName)'" type="button" value="@CommonResource.ButtonNewTitle" class="buttonSmall"/>  
+
+    </fieldset>
+}

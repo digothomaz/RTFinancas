@@ -1,0 +1,38 @@
+﻿@using RThomaz.Web.Resources
+@using RThomaz.Web.Content.Resources
+
+@model RThomaz.Web.Models.PaisDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@PaisResource.LegendDefault</legend>
+                
+        @if (Model.Entity.PaisId == 0)
+        {
+            @Html.Hidden("model.Entity.PaisId", Model.Entity.PaisId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.PaisId", @Model.Entity.PaisId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(PaisResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}

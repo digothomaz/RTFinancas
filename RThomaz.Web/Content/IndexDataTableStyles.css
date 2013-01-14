@@ -1,0 +1,40 @@
+﻿.IndexDataTableStyle 
+{
+    width: 100%;
+    color: black;
+    text-align:left;
+    border-collapse: collapse;
+    border: none;
+}
+
+.IndexDataTableTheadStyle 
+{
+    font-style: normal;
+    font-weight: normal;
+    background-color: #D6D6D6;
+}
+
+.IndexDataTableTrNormalStyle
+{
+
+}
+
+.IndexDataTableTrAlternativeStyle
+{
+    background-color: #D6D6D6;
+}
+
+.IndexDataTableTdIdStyle
+{
+    width: 70px;
+}
+
+.IndexDataTableTdGuidStyle
+{
+    width: 320px;
+}
+
+.IndexDataTableTdDetailStyle
+{
+    width: 50px;
+}

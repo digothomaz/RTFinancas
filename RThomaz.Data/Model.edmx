@@ -1,0 +1,1897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RThomazDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RThomazDbModelStoreContainer">
+          <EntitySet Name="Banco" EntityType="RThomazDbModel.Store.Banco" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Cidade" EntityType="RThomazDbModel.Store.Cidade" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Conta" EntityType="RThomazDbModel.Store.Conta" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaCartaoCredito" EntityType="RThomazDbModel.Store.ContaCartaoCredito" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaCobrancaBancaria" EntityType="RThomazDbModel.Store.ContaCobrancaBancaria" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaCorrente" EntityType="RThomazDbModel.Store.ContaCorrente" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaDinheiro" EntityType="RThomazDbModel.Store.ContaDinheiro" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaInvestimento" EntityType="RThomazDbModel.Store.ContaInvestimento" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="ContaPoupanca" EntityType="RThomazDbModel.Store.ContaPoupanca" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Email" EntityType="RThomazDbModel.Store.Email" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Endereco" EntityType="RThomazDbModel.Store.Endereco" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Estado" EntityType="RThomazDbModel.Store.Estado" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="GrupoConta" EntityType="RThomazDbModel.Store.GrupoConta" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="HomePage" EntityType="RThomazDbModel.Store.HomePage" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Lancamento" EntityType="RThomazDbModel.Store.Lancamento" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="LancamentoDespesa" EntityType="RThomazDbModel.Store.LancamentoDespesa" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="LancamentoReceita" EntityType="RThomazDbModel.Store.LancamentoReceita" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Pais" EntityType="RThomazDbModel.Store.Pais" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Pessoa" EntityType="RThomazDbModel.Store.Pessoa" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="PessoaFisica" EntityType="RThomazDbModel.Store.PessoaFisica" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="PessoaJuridica" EntityType="RThomazDbModel.Store.PessoaJuridica" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Telefone" EntityType="RThomazDbModel.Store.Telefone" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="TipoEmail" EntityType="RThomazDbModel.Store.TipoEmail" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="TipoEndereco" EntityType="RThomazDbModel.Store.TipoEndereco" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="TipoHomePage" EntityType="RThomazDbModel.Store.TipoHomePage" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="TipoTelefone" EntityType="RThomazDbModel.Store.TipoTelefone" store:Type="Tables" Schema="rthomaz" />
+          <EntitySet Name="Usuario" EntityType="RThomazDbModel.Store.Usuario" store:Type="Tables" Schema="rthomaz" />
+          <AssociationSet Name="FK_Cidade_Estado" Association="RThomazDbModel.Store.FK_Cidade_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Cidade" EntitySet="Cidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conta_GrupoConta" Association="RThomazDbModel.Store.FK_Conta_GrupoConta">
+            <End Role="GrupoConta" EntitySet="GrupoConta" />
+            <End Role="Conta" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCartaoCredito_Banco" Association="RThomazDbModel.Store.FK_ContaCartaoCredito_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCartaoCredito" EntitySet="ContaCartaoCredito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCartaoCredito_Conta" Association="RThomazDbModel.Store.FK_ContaCartaoCredito_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaCartaoCredito" EntitySet="ContaCartaoCredito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCobrancaBancaria_Banco" Association="RThomazDbModel.Store.FK_ContaCobrancaBancaria_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCobrancaBancaria" EntitySet="ContaCobrancaBancaria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCobrancaBancaria_Conta" Association="RThomazDbModel.Store.FK_ContaCobrancaBancaria_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaCobrancaBancaria" EntitySet="ContaCobrancaBancaria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Banco" Association="RThomazDbModel.Store.FK_ContaCorrente_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Conta" Association="RThomazDbModel.Store.FK_ContaCorrente_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaCorrente" EntitySet="ContaCorrente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaDinheiro_Conta" Association="RThomazDbModel.Store.FK_ContaDinheiro_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaDinheiro" EntitySet="ContaDinheiro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaInvestimento_Conta" Association="RThomazDbModel.Store.FK_ContaInvestimento_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaInvestimento" EntitySet="ContaInvestimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaPoupanca_Banco" Association="RThomazDbModel.Store.FK_ContaPoupanca_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaPoupanca" EntitySet="ContaPoupanca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaPoupanca_Conta" Association="RThomazDbModel.Store.FK_ContaPoupanca_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="ContaPoupanca" EntitySet="ContaPoupanca" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Email_Pessoa" Association="RThomazDbModel.Store.FK_Email_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Email" EntitySet="Email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Email_TipoEmail" Association="RThomazDbModel.Store.FK_Email_TipoEmail">
+            <End Role="TipoEmail" EntitySet="TipoEmail" />
+            <End Role="Email" EntitySet="Email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Endereco_Cidade" Association="RThomazDbModel.Store.FK_Endereco_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Endereco_Pessoa" Association="RThomazDbModel.Store.FK_Endereco_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Endereco_TipoEndereco" Association="RThomazDbModel.Store.FK_Endereco_TipoEndereco">
+            <End Role="TipoEndereco" EntitySet="TipoEndereco" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pais" Association="RThomazDbModel.Store.FK_Estado_Pais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HomePage_Pessoa" Association="RThomazDbModel.Store.FK_HomePage_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="HomePage" EntitySet="HomePage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HomePage_TipoHomePage" Association="RThomazDbModel.Store.FK_HomePage_TipoHomePage">
+            <End Role="TipoHomePage" EntitySet="TipoHomePage" />
+            <End Role="HomePage" EntitySet="HomePage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lancamento_Conta" Association="RThomazDbModel.Store.FK_Lancamento_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lancamento_Pessoa" Association="RThomazDbModel.Store.FK_Lancamento_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LancamentoDespesa_Lancamento" Association="RThomazDbModel.Store.FK_LancamentoDespesa_Lancamento">
+            <End Role="Lancamento" EntitySet="Lancamento" />
+            <End Role="LancamentoDespesa" EntitySet="LancamentoDespesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LancamentoReceita_Lancamento" Association="RThomazDbModel.Store.FK_LancamentoReceita_Lancamento">
+            <End Role="Lancamento" EntitySet="Lancamento" />
+            <End Role="LancamentoReceita" EntitySet="LancamentoReceita" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PessoaFisica_Pessoa" Association="RThomazDbModel.Store.FK_PessoaFisica_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="PessoaFisica" EntitySet="PessoaFisica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PessoaJuridica_Pessoa" Association="RThomazDbModel.Store.FK_PessoaJuridica_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="PessoaJuridica" EntitySet="PessoaJuridica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefone_Pessoa" Association="RThomazDbModel.Store.FK_Telefone_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefone_TipoTelefone" Association="RThomazDbModel.Store.FK_Telefone_TipoTelefone">
+            <End Role="TipoTelefone" EntitySet="TipoTelefone" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="BancoId" />
+          </Key>
+          <Property Name="BancoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Numero" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Site" Type="nvarchar(max)" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="CidadeId" />
+          </Key>
+          <Property Name="CidadeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EstadoId" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Conta">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="GrupoContaId" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SaldoAberturaData" Type="datetime" Nullable="false" />
+          <Property Name="SaldoAberturaValor" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContaCartaoCredito">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="NumeroCartao" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="BancoId" Type="int" />
+          <Property Name="Agencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="NumeroConta" Type="varchar" MaxLength="10" />
+          <Property Name="LimiteCredito" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="DiaFechamento" Type="tinyint" Nullable="false" />
+          <Property Name="DiaVencimento" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContaCobrancaBancaria">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="BancoId" Type="int" />
+          <Property Name="Agencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="NumeroConta" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ContaCorrente">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="BancoId" Type="int" Nullable="false" />
+          <Property Name="Agencia" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NumeroConta" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="LimiteCredito" Type="decimal" Scale="2" />
+          <Property Name="LimiteVencimento" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="ContaDinheiro">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContaInvestimento">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContaPoupanca">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="BancoId" Type="int" Nullable="false" />
+          <Property Name="Agencia" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NumeroConta" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoEmailId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Endereco" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="EnderecoId" />
+          </Key>
+          <Property Name="EnderecoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoEnderecoId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="CidadeId" Type="int" Nullable="false" />
+          <Property Name="Logradouro" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="10" />
+          <Property Name="Complemento" Type="nvarchar" MaxLength="200" />
+          <Property Name="CEP" Type="nvarchar" MaxLength="13" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="EstadoId" />
+          </Key>
+          <Property Name="EstadoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PaisId" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UF" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrupoConta">
+          <Key>
+            <PropertyRef Name="GrupoContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Name="GrupoContaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomePage">
+          <Key>
+            <PropertyRef Name="HomePageId" />
+          </Key>
+          <Property Name="HomePageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoHomePageId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Endereco" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lancamento">
+          <Key>
+            <PropertyRef Name="LancamentoId" />
+            <PropertyRef Name="TipoLancamentoId" />
+          </Key>
+          <Property Name="LancamentoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoLancamentoId" Type="tinyint" Nullable="false" />
+          <Property Name="ContaId" Type="int" Nullable="false" />
+          <Property Name="TipoContaId" Type="tinyint" Nullable="false" />
+          <Property Name="PessoaId" Type="int" />
+          <Property Name="TipoPessoaId" Type="tinyint" />
+          <Property Name="DataLancamento" Type="datetime" />
+          <Property Name="ValorLancamento" Type="decimal" Scale="2" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" />
+          <Property Name="Historico" Type="nvarchar(max)" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LancamentoDespesa">
+          <Key>
+            <PropertyRef Name="LancamentoId" />
+            <PropertyRef Name="TipoLancamentoId" />
+          </Key>
+          <Property Name="LancamentoId" Type="int" Nullable="false" />
+          <Property Name="TipoLancamentoId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LancamentoReceita">
+          <Key>
+            <PropertyRef Name="LancamentoId" />
+            <PropertyRef Name="TipoLancamentoId" />
+          </Key>
+          <Property Name="LancamentoId" Type="int" Nullable="false" />
+          <Property Name="TipoLancamentoId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Name="PaisId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PessoaFisica">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="RG" Type="nvarchar" MaxLength="9" />
+          <Property Name="CPF" Type="nvarchar" MaxLength="12" />
+          <Property Name="DataNascimento" Type="datetime" />
+          <Property Name="Sexo" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="PessoaJuridica">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="NomeFantasia" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="RazaoSocial" Type="nvarchar" MaxLength="200" />
+          <Property Name="CNPJ" Type="nvarchar" MaxLength="18" />
+          <Property Name="InscricaoEstadual" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="TelefoneId" />
+          </Key>
+          <Property Name="TelefoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PessoaId" Type="int" Nullable="false" />
+          <Property Name="TipoTelefoneId" Type="int" Nullable="false" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEmail">
+          <Key>
+            <PropertyRef Name="TipoEmailId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="TipoEmailId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEndereco">
+          <Key>
+            <PropertyRef Name="TipoEnderecoId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="TipoEnderecoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoHomePage">
+          <Key>
+            <PropertyRef Name="TipoHomePageId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="TipoHomePageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTelefone">
+          <Key>
+            <PropertyRef Name="TipoTelefoneId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Name="TipoTelefoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPessoaId" Type="tinyint" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Name="UsuarioId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Senha" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+          <Property Name="DataCriacao" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cidade_Estado">
+          <End Role="Estado" Type="RThomazDbModel.Store.Estado" Multiplicity="1" />
+          <End Role="Cidade" Type="RThomazDbModel.Store.Cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="EstadoId" />
+            </Principal>
+            <Dependent Role="Cidade">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conta_GrupoConta">
+          <End Role="GrupoConta" Type="RThomazDbModel.Store.GrupoConta" Multiplicity="1" />
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoConta">
+              <PropertyRef Name="GrupoContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="Conta">
+              <PropertyRef Name="GrupoContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCartaoCredito_Banco">
+          <End Role="Banco" Type="RThomazDbModel.Store.Banco" Multiplicity="0..1" />
+          <End Role="ContaCartaoCredito" Type="RThomazDbModel.Store.ContaCartaoCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCartaoCredito">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCartaoCredito_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaCartaoCredito" Type="RThomazDbModel.Store.ContaCartaoCredito" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaCartaoCredito">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCobrancaBancaria_Banco">
+          <End Role="Banco" Type="RThomazDbModel.Store.Banco" Multiplicity="0..1" />
+          <End Role="ContaCobrancaBancaria" Type="RThomazDbModel.Store.ContaCobrancaBancaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCobrancaBancaria">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCobrancaBancaria_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaCobrancaBancaria" Type="RThomazDbModel.Store.ContaCobrancaBancaria" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaCobrancaBancaria">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Banco">
+          <End Role="Banco" Type="RThomazDbModel.Store.Banco" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="RThomazDbModel.Store.ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCorrente_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaCorrente" Type="RThomazDbModel.Store.ContaCorrente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaDinheiro_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaDinheiro" Type="RThomazDbModel.Store.ContaDinheiro" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaDinheiro">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaInvestimento_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaInvestimento" Type="RThomazDbModel.Store.ContaInvestimento" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaInvestimento">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaPoupanca_Banco">
+          <End Role="Banco" Type="RThomazDbModel.Store.Banco" Multiplicity="1" />
+          <End Role="ContaPoupanca" Type="RThomazDbModel.Store.ContaPoupanca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaPoupanca">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaPoupanca_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="ContaPoupanca" Type="RThomazDbModel.Store.ContaPoupanca" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="ContaPoupanca">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Email_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="Email" Type="RThomazDbModel.Store.Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Email_TipoEmail">
+          <End Role="TipoEmail" Type="RThomazDbModel.Store.TipoEmail" Multiplicity="1" />
+          <End Role="Email" Type="RThomazDbModel.Store.Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmail">
+              <PropertyRef Name="TipoEmailId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="TipoEmailId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Endereco_Cidade">
+          <End Role="Cidade" Type="RThomazDbModel.Store.Cidade" Multiplicity="1" />
+          <End Role="Endereco" Type="RThomazDbModel.Store.Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="CidadeId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="CidadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Endereco_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="Endereco" Type="RThomazDbModel.Store.Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Endereco_TipoEndereco">
+          <End Role="TipoEndereco" Type="RThomazDbModel.Store.TipoEndereco" Multiplicity="1" />
+          <End Role="Endereco" Type="RThomazDbModel.Store.Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEndereco">
+              <PropertyRef Name="TipoEnderecoId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="TipoEnderecoId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pais">
+          <End Role="Pais" Type="RThomazDbModel.Store.Pais" Multiplicity="1" />
+          <End Role="Estado" Type="RThomazDbModel.Store.Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="PaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HomePage_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="HomePage" Type="RThomazDbModel.Store.HomePage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="HomePage">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HomePage_TipoHomePage">
+          <End Role="TipoHomePage" Type="RThomazDbModel.Store.TipoHomePage" Multiplicity="1" />
+          <End Role="HomePage" Type="RThomazDbModel.Store.HomePage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHomePage">
+              <PropertyRef Name="TipoHomePageId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="HomePage">
+              <PropertyRef Name="TipoHomePageId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lancamento_Conta">
+          <End Role="Conta" Type="RThomazDbModel.Store.Conta" Multiplicity="1" />
+          <End Role="Lancamento" Type="RThomazDbModel.Store.Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lancamento_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="0..1" />
+          <End Role="Lancamento" Type="RThomazDbModel.Store.Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LancamentoDespesa_Lancamento">
+          <End Role="Lancamento" Type="RThomazDbModel.Store.Lancamento" Multiplicity="1" />
+          <End Role="LancamentoDespesa" Type="RThomazDbModel.Store.LancamentoDespesa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Lancamento">
+              <PropertyRef Name="LancamentoId" />
+              <PropertyRef Name="TipoLancamentoId" />
+            </Principal>
+            <Dependent Role="LancamentoDespesa">
+              <PropertyRef Name="LancamentoId" />
+              <PropertyRef Name="TipoLancamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LancamentoReceita_Lancamento">
+          <End Role="Lancamento" Type="RThomazDbModel.Store.Lancamento" Multiplicity="1" />
+          <End Role="LancamentoReceita" Type="RThomazDbModel.Store.LancamentoReceita" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Lancamento">
+              <PropertyRef Name="LancamentoId" />
+              <PropertyRef Name="TipoLancamentoId" />
+            </Principal>
+            <Dependent Role="LancamentoReceita">
+              <PropertyRef Name="LancamentoId" />
+              <PropertyRef Name="TipoLancamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PessoaFisica_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="PessoaFisica" Type="RThomazDbModel.Store.PessoaFisica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="PessoaFisica">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PessoaJuridica_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="PessoaJuridica" Type="RThomazDbModel.Store.PessoaJuridica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="PessoaJuridica">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefone_Pessoa">
+          <End Role="Pessoa" Type="RThomazDbModel.Store.Pessoa" Multiplicity="1" />
+          <End Role="Telefone" Type="RThomazDbModel.Store.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefone_TipoTelefone">
+          <End Role="TipoTelefone" Type="RThomazDbModel.Store.TipoTelefone" Multiplicity="1" />
+          <End Role="Telefone" Type="RThomazDbModel.Store.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTelefone">
+              <PropertyRef Name="TipoTelefoneId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="TipoTelefoneId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RThomazDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RThomazDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cidade" EntityType="RThomazDbModel.Cidade" />
+          <EntitySet Name="Estado" EntityType="RThomazDbModel.Estado" />
+          <EntitySet Name="Pais" EntityType="RThomazDbModel.Pais" />
+          <AssociationSet Name="FK_Cidade_Estado" Association="RThomazDbModel.FK_Cidade_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Cidade" EntitySet="Cidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Pais" Association="RThomazDbModel.FK_Estado_Pais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Estado" EntitySet="Estado" />
+          </AssociationSet>
+          <EntitySet Name="Usuario" EntityType="RThomazDbModel.Usuario" />
+          <EntitySet Name="Banco" EntityType="RThomazDbModel.Banco" />
+          <EntitySet Name="Conta" EntityType="RThomazDbModel.Conta" />
+          <EntitySet Name="GrupoConta" EntityType="RThomazDbModel.GrupoConta" />
+          <AssociationSet Name="FK_ContaCartaoCredito_Banco" Association="RThomazDbModel.FK_ContaCartaoCredito_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCartaoCredito" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCobrancaBancaria_Banco" Association="RThomazDbModel.FK_ContaCobrancaBancaria_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCobrancaBancaria" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaPoupanca_Banco" Association="RThomazDbModel.FK_ContaPoupanca_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaPoupanca" EntitySet="Conta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Conta_GrupoConta" Association="RThomazDbModel.FK_Conta_GrupoConta">
+            <End Role="GrupoConta" EntitySet="GrupoConta" />
+            <End Role="Conta" EntitySet="Conta" />
+          </AssociationSet>
+          <EntitySet Name="Email" EntityType="RThomazDbModel.Email" />
+          <EntitySet Name="Endereco" EntityType="RThomazDbModel.Endereco" />
+          <EntitySet Name="HomePage" EntityType="RThomazDbModel.HomePage" />
+          <EntitySet Name="Pessoa" EntityType="RThomazDbModel.Pessoa" />
+          <EntitySet Name="Telefone" EntityType="RThomazDbModel.Telefone" />
+          <EntitySet Name="TipoEmail" EntityType="RThomazDbModel.TipoEmail" />
+          <EntitySet Name="TipoEndereco" EntityType="RThomazDbModel.TipoEndereco" />
+          <EntitySet Name="TipoHomePage" EntityType="RThomazDbModel.TipoHomePage" />
+          <EntitySet Name="TipoTelefone" EntityType="RThomazDbModel.TipoTelefone" />
+          <AssociationSet Name="FK_Endereco_Cidade" Association="RThomazDbModel.FK_Endereco_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Email_Pessoa" Association="RThomazDbModel.FK_Email_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Email" EntitySet="Email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Email_TipoEmail" Association="RThomazDbModel.FK_Email_TipoEmail">
+            <End Role="TipoEmail" EntitySet="TipoEmail" />
+            <End Role="Email" EntitySet="Email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Endereco_Pessoa" Association="RThomazDbModel.FK_Endereco_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Endereco_TipoEndereco" Association="RThomazDbModel.FK_Endereco_TipoEndereco">
+            <End Role="TipoEndereco" EntitySet="TipoEndereco" />
+            <End Role="Endereco" EntitySet="Endereco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HomePage_Pessoa" Association="RThomazDbModel.FK_HomePage_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="HomePage" EntitySet="HomePage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HomePage_TipoHomePage" Association="RThomazDbModel.FK_HomePage_TipoHomePage">
+            <End Role="TipoHomePage" EntitySet="TipoHomePage" />
+            <End Role="HomePage" EntitySet="HomePage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefone_Pessoa" Association="RThomazDbModel.FK_Telefone_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Telefone_TipoTelefone" Association="RThomazDbModel.FK_Telefone_TipoTelefone">
+            <End Role="TipoTelefone" EntitySet="TipoTelefone" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <EntitySet Name="Lancamento" EntityType="RThomazDbModel.Lancamento" />
+          <AssociationSet Name="FK_Lancamento_Conta" Association="RThomazDbModel.FK_Lancamento_Conta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lancamento_Pessoa" Association="RThomazDbModel.FK_Lancamento_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Lancamento" EntitySet="Lancamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContaCorrente_Banco" Association="RThomazDbModel.FK_ContaCorrente_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="ContaCorrente" EntitySet="Conta" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="CidadeId" />
+          </Key>
+          <Property Type="Int32" Name="CidadeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EstadoId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Estado" Relationship="RThomazDbModel.FK_Cidade_Estado" FromRole="Cidade" ToRole="Estado" />
+          <NavigationProperty Name="Endereco" Relationship="RThomazDbModel.FK_Endereco_Cidade" FromRole="Cidade" ToRole="Endereco" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="EstadoId" />
+          </Key>
+          <Property Type="Int32" Name="EstadoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PaisId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UF" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Cidades" Relationship="RThomazDbModel.FK_Cidade_Estado" FromRole="Estado" ToRole="Cidade" />
+          <NavigationProperty Name="Pais" Relationship="RThomazDbModel.FK_Estado_Pais" FromRole="Estado" ToRole="Pais" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="PaisId" />
+          </Key>
+          <Property Type="Int32" Name="PaisId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Estados" Relationship="RThomazDbModel.FK_Estado_Pais" FromRole="Pais" ToRole="Estado" />
+        </EntityType>
+        <Association Name="FK_Cidade_Estado">
+          <End Type="RThomazDbModel.Estado" Role="Estado" Multiplicity="1" />
+          <End Type="RThomazDbModel.Cidade" Role="Cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="EstadoId" />
+            </Principal>
+            <Dependent Role="Cidade">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Pais">
+          <End Type="RThomazDbModel.Pais" Role="Pais" Multiplicity="1" />
+          <End Type="RThomazDbModel.Estado" Role="Estado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="PaisId" />
+            </Principal>
+            <Dependent Role="Estado">
+              <PropertyRef Name="PaisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="UsuarioId" />
+          </Key>
+          <Property Type="Int64" Name="UsuarioId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Senha" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Ativo" Nullable="false" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="BancoId" />
+          </Key>
+          <Property Type="Int32" Name="BancoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Numero" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Site" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="ContaCartaoCredito" Relationship="RThomazDbModel.FK_ContaCartaoCredito_Banco" FromRole="Banco" ToRole="ContaCartaoCredito" />
+          <NavigationProperty Name="ContaCobrancaBancaria" Relationship="RThomazDbModel.FK_ContaCobrancaBancaria_Banco" FromRole="Banco" ToRole="ContaCobrancaBancaria" />
+          <NavigationProperty Name="ContaPoupanca" Relationship="RThomazDbModel.FK_ContaPoupanca_Banco" FromRole="Banco" ToRole="ContaPoupanca" />
+          <NavigationProperty Name="ContaCorrente" Relationship="RThomazDbModel.FK_ContaCorrente_Banco" FromRole="Banco" ToRole="ContaCorrente" />
+        </EntityType>
+        <EntityType Name="Conta" Abstract="true">
+          <Key>
+            <PropertyRef Name="ContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Type="Int32" Name="ContaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoContaId" Nullable="false" />
+          <Property Type="Int32" Name="GrupoContaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SaldoAberturaData" Nullable="false" />
+          <Property Type="Decimal" Name="SaldoAberturaValor" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="Ativo" Nullable="false" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="GrupoConta" Relationship="RThomazDbModel.FK_Conta_GrupoConta" FromRole="Conta" ToRole="GrupoConta" />
+          <NavigationProperty Name="Lancamento" Relationship="RThomazDbModel.FK_Lancamento_Conta" FromRole="Conta" ToRole="Lancamento" />
+        </EntityType>
+        <EntityType Name="ContaCartaoCredito" BaseType="RThomazDbModel.Conta">
+          <Property Type="String" Name="NumeroCartao" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="BancoId" />
+          <Property Type="String" Name="Agencia" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroConta" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="LimiteCredito" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="DiaFechamento" Nullable="false" />
+          <Property Type="Byte" Name="DiaVencimento" Nullable="false" />
+          <NavigationProperty Name="Banco" Relationship="RThomazDbModel.FK_ContaCartaoCredito_Banco" FromRole="ContaCartaoCredito" ToRole="Banco" />
+        </EntityType>
+        <EntityType Name="ContaCobrancaBancaria" BaseType="RThomazDbModel.Conta">
+          <Property Type="Int32" Name="BancoId" />
+          <Property Type="String" Name="Agencia" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroConta" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Banco" Relationship="RThomazDbModel.FK_ContaCobrancaBancaria_Banco" FromRole="ContaCobrancaBancaria" ToRole="Banco" />
+        </EntityType>
+        <EntityType Name="ContaDinheiro" BaseType="RThomazDbModel.Conta">
+          </EntityType>
+        <EntityType Name="ContaInvestimento" BaseType="RThomazDbModel.Conta">
+          </EntityType>
+        <EntityType Name="ContaPoupanca" BaseType="RThomazDbModel.Conta">
+          <Property Type="Int32" Name="BancoId" Nullable="false" />
+          <Property Type="String" Name="Agencia" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroConta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Banco" Relationship="RThomazDbModel.FK_ContaPoupanca_Banco" FromRole="ContaPoupanca" ToRole="Banco" />
+        </EntityType>
+        <EntityType Name="GrupoConta">
+          <Key>
+            <PropertyRef Name="GrupoContaId" />
+            <PropertyRef Name="TipoContaId" />
+          </Key>
+          <Property Type="Int32" Name="GrupoContaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoContaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Conta" Relationship="RThomazDbModel.FK_Conta_GrupoConta" FromRole="GrupoConta" ToRole="Conta" />
+        </EntityType>
+        <Association Name="FK_ContaCartaoCredito_Banco">
+          <End Type="RThomazDbModel.Banco" Role="Banco" Multiplicity="0..1" />
+          <End Type="RThomazDbModel.ContaCartaoCredito" Role="ContaCartaoCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCartaoCredito">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaCobrancaBancaria_Banco">
+          <End Type="RThomazDbModel.Banco" Role="Banco" Multiplicity="0..1" />
+          <End Type="RThomazDbModel.ContaCobrancaBancaria" Role="ContaCobrancaBancaria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCobrancaBancaria">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContaPoupanca_Banco">
+          <End Type="RThomazDbModel.Banco" Role="Banco" Multiplicity="1" />
+          <End Type="RThomazDbModel.ContaPoupanca" Role="ContaPoupanca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaPoupanca">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Conta_GrupoConta">
+          <End Type="RThomazDbModel.GrupoConta" Role="GrupoConta" Multiplicity="1" />
+          <End Type="RThomazDbModel.Conta" Role="Conta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoConta">
+              <PropertyRef Name="GrupoContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="Conta">
+              <PropertyRef Name="GrupoContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Type="Int32" Name="EmailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PessoaId" Nullable="false" />
+          <Property Type="Int32" Name="TipoEmailId" Nullable="false" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="RThomazDbModel.FK_Email_Pessoa" FromRole="Email" ToRole="Pessoa" />
+          <NavigationProperty Name="TipoEmail" Relationship="RThomazDbModel.FK_Email_TipoEmail" FromRole="Email" ToRole="TipoEmail" />
+          <Property Type="String" Name="Endereco" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="EnderecoId" />
+          </Key>
+          <Property Type="Int32" Name="EnderecoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PessoaId" Nullable="false" />
+          <Property Type="Int32" Name="TipoEnderecoId" Nullable="false" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="Int32" Name="CidadeId" Nullable="false" />
+          <Property Type="String" Name="Logradouro" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Numero" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Complemento" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CEP" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Cidade" Relationship="RThomazDbModel.FK_Endereco_Cidade" FromRole="Endereco" ToRole="Cidade" />
+          <NavigationProperty Name="Pessoa" Relationship="RThomazDbModel.FK_Endereco_Pessoa" FromRole="Endereco" ToRole="Pessoa" />
+          <NavigationProperty Name="TipoEndereco" Relationship="RThomazDbModel.FK_Endereco_TipoEndereco" FromRole="Endereco" ToRole="TipoEndereco" />
+        </EntityType>
+        <EntityType Name="HomePage">
+          <Key>
+            <PropertyRef Name="HomePageId" />
+          </Key>
+          <Property Type="Int32" Name="HomePageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PessoaId" Nullable="false" />
+          <Property Type="Int32" Name="TipoHomePageId" Nullable="false" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="RThomazDbModel.FK_HomePage_Pessoa" FromRole="HomePage" ToRole="Pessoa" />
+          <NavigationProperty Name="TipoHomePage" Relationship="RThomazDbModel.FK_HomePage_TipoHomePage" FromRole="HomePage" ToRole="TipoHomePage" />
+          <Property Type="String" Name="Endereco" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pessoa" Abstract="true">
+          <Key>
+            <PropertyRef Name="PessoaId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Type="Int32" Name="PessoaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Email" Relationship="RThomazDbModel.FK_Email_Pessoa" FromRole="Pessoa" ToRole="Email" />
+          <NavigationProperty Name="Endereco" Relationship="RThomazDbModel.FK_Endereco_Pessoa" FromRole="Pessoa" ToRole="Endereco" />
+          <NavigationProperty Name="HomePage" Relationship="RThomazDbModel.FK_HomePage_Pessoa" FromRole="Pessoa" ToRole="HomePage" />
+          <NavigationProperty Name="Telefone" Relationship="RThomazDbModel.FK_Telefone_Pessoa" FromRole="Pessoa" ToRole="Telefone" />
+          <NavigationProperty Name="Lancamento" Relationship="RThomazDbModel.FK_Lancamento_Pessoa" FromRole="Pessoa" ToRole="Lancamento" />
+        </EntityType>
+        <EntityType Name="PessoaFisica" BaseType="RThomazDbModel.Pessoa">
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RG" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CPF" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataNascimento" />
+          <Property Type="Byte" Name="Sexo" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="TelefoneId" />
+          </Key>
+          <Property Type="Int32" Name="TelefoneId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PessoaId" Nullable="false" />
+          <Property Type="Int32" Name="TipoTelefoneId" Nullable="false" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="String" Name="Numero" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Pessoa" Relationship="RThomazDbModel.FK_Telefone_Pessoa" FromRole="Telefone" ToRole="Pessoa" />
+          <NavigationProperty Name="TipoTelefone" Relationship="RThomazDbModel.FK_Telefone_TipoTelefone" FromRole="Telefone" ToRole="TipoTelefone" />
+        </EntityType>
+        <EntityType Name="TipoEmail">
+          <Key>
+            <PropertyRef Name="TipoEmailId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Type="Int32" Name="TipoEmailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Email" Relationship="RThomazDbModel.FK_Email_TipoEmail" FromRole="TipoEmail" ToRole="Email" />
+        </EntityType>
+        <EntityType Name="TipoEndereco">
+          <Key>
+            <PropertyRef Name="TipoEnderecoId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Type="Int32" Name="TipoEnderecoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Endereco" Relationship="RThomazDbModel.FK_Endereco_TipoEndereco" FromRole="TipoEndereco" ToRole="Endereco" />
+        </EntityType>
+        <EntityType Name="TipoHomePage">
+          <Key>
+            <PropertyRef Name="TipoHomePageId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Type="Int32" Name="TipoHomePageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="HomePage" Relationship="RThomazDbModel.FK_HomePage_TipoHomePage" FromRole="TipoHomePage" ToRole="HomePage" />
+        </EntityType>
+        <EntityType Name="TipoTelefone">
+          <Key>
+            <PropertyRef Name="TipoTelefoneId" />
+            <PropertyRef Name="TipoPessoaId" />
+          </Key>
+          <Property Type="Int32" Name="TipoTelefoneId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoPessoaId" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Telefone" Relationship="RThomazDbModel.FK_Telefone_TipoTelefone" FromRole="TipoTelefone" ToRole="Telefone" />
+        </EntityType>
+        <Association Name="FK_Endereco_Cidade">
+          <End Type="RThomazDbModel.Cidade" Role="Cidade" Multiplicity="1" />
+          <End Type="RThomazDbModel.Endereco" Role="Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="CidadeId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="CidadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Email_Pessoa">
+          <End Type="RThomazDbModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="RThomazDbModel.Email" Role="Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Email_TipoEmail">
+          <End Type="RThomazDbModel.TipoEmail" Role="TipoEmail" Multiplicity="1" />
+          <End Type="RThomazDbModel.Email" Role="Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmail">
+              <PropertyRef Name="TipoEmailId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="TipoEmailId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Endereco_Pessoa">
+          <End Type="RThomazDbModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="RThomazDbModel.Endereco" Role="Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Endereco_TipoEndereco">
+          <End Type="RThomazDbModel.TipoEndereco" Role="TipoEndereco" Multiplicity="1" />
+          <End Type="RThomazDbModel.Endereco" Role="Endereco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEndereco">
+              <PropertyRef Name="TipoEnderecoId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Endereco">
+              <PropertyRef Name="TipoEnderecoId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HomePage_Pessoa">
+          <End Type="RThomazDbModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="RThomazDbModel.HomePage" Role="HomePage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="HomePage">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HomePage_TipoHomePage">
+          <End Type="RThomazDbModel.TipoHomePage" Role="TipoHomePage" Multiplicity="1" />
+          <End Type="RThomazDbModel.HomePage" Role="HomePage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoHomePage">
+              <PropertyRef Name="TipoHomePageId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="HomePage">
+              <PropertyRef Name="TipoHomePageId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefone_Pessoa">
+          <End Type="RThomazDbModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="RThomazDbModel.Telefone" Role="Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Telefone_TipoTelefone">
+          <End Type="RThomazDbModel.TipoTelefone" Role="TipoTelefone" Multiplicity="1" />
+          <End Type="RThomazDbModel.Telefone" Role="Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTelefone">
+              <PropertyRef Name="TipoTelefoneId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="TipoTelefoneId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Lancamento" Abstract="true">
+          <Key>
+            <PropertyRef Name="LancamentoId" />
+            <PropertyRef Name="TipoLancamentoId" />
+          </Key>
+          <Property Type="Int32" Name="LancamentoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Byte" Name="TipoLancamentoId" Nullable="false" />
+          <Property Type="Int32" Name="ContaId" Nullable="false" />
+          <Property Type="Byte" Name="TipoContaId" Nullable="false" />
+          <Property Type="Int32" Name="PessoaId" />
+          <Property Type="Byte" Name="TipoPessoaId" />
+          <Property Type="DateTime" Name="DataLancamento" />
+          <Property Type="Decimal" Name="ValorLancamento" Precision="18" Scale="2" />
+          <Property Type="String" Name="Numero" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Historico" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataCriacao" Nullable="false" />
+          <NavigationProperty Name="Conta" Relationship="RThomazDbModel.FK_Lancamento_Conta" FromRole="Lancamento" ToRole="Conta" />
+          <NavigationProperty Name="Pessoa" Relationship="RThomazDbModel.FK_Lancamento_Pessoa" FromRole="Lancamento" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="FK_Lancamento_Conta">
+          <End Type="RThomazDbModel.Conta" Role="Conta" Multiplicity="1" />
+          <End Type="RThomazDbModel.Lancamento" Role="Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="ContaId" />
+              <PropertyRef Name="TipoContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lancamento_Pessoa">
+          <End Type="RThomazDbModel.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+          <End Type="RThomazDbModel.Lancamento" Role="Lancamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Principal>
+            <Dependent Role="Lancamento">
+              <PropertyRef Name="PessoaId" />
+              <PropertyRef Name="TipoPessoaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LancamentoDespesa" BaseType="RThomazDbModel.Lancamento">
+        </EntityType>
+        <EntityType Name="LancamentoReceita" BaseType="RThomazDbModel.Lancamento">
+        </EntityType>
+        <EntityType Name="ContaCorrente" BaseType="RThomazDbModel.Conta">
+          <Property Type="Int32" Name="BancoId" Nullable="false" />
+          <Property Type="String" Name="Agencia" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumeroConta" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="LimiteCredito" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="LimiteVencimento" />
+          <NavigationProperty Name="Banco" Relationship="RThomazDbModel.FK_ContaCorrente_Banco" FromRole="ContaCorrente" ToRole="Banco" />
+        </EntityType>
+        <Association Name="FK_ContaCorrente_Banco">
+          <End Type="RThomazDbModel.Banco" Role="Banco" Multiplicity="1" />
+          <End Type="RThomazDbModel.ContaCorrente" Role="ContaCorrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoId" />
+            </Principal>
+            <Dependent Role="ContaCorrente">
+              <PropertyRef Name="BancoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PessoaJuridica" BaseType="RThomazDbModel.Pessoa">
+          <Property Type="String" Name="NomeFantasia" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RazaoSocial" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CNPJ" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InscricaoEstadual" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RThomazDbModelStoreContainer" CdmEntityContainer="RThomazDbEntities">
+          <EntitySetMapping Name="Cidade">
+            <EntityTypeMapping TypeName="RThomazDbModel.Cidade">
+              <MappingFragment StoreEntitySet="Cidade">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+                <ScalarProperty Name="CidadeId" ColumnName="CidadeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="RThomazDbModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+                <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="RThomazDbModel.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="PaisId" ColumnName="PaisId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="RThomazDbModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banco">
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.Banco)">
+              <MappingFragment StoreEntitySet="Banco">
+                <ScalarProperty Name="BancoId" ColumnName="BancoId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conta">
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.Conta)">
+              <MappingFragment StoreEntitySet="Conta">
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="SaldoAberturaValor" ColumnName="SaldoAberturaValor" />
+                <ScalarProperty Name="SaldoAberturaData" ColumnName="SaldoAberturaData" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="GrupoContaId" ColumnName="GrupoContaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaCartaoCredito)">
+              <MappingFragment StoreEntitySet="ContaCartaoCredito">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="NumeroCartao" ColumnName="NumeroCartao" />
+                <ScalarProperty Name="BancoId" ColumnName="BancoId" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="NumeroConta" ColumnName="NumeroConta" />
+                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+                <ScalarProperty Name="DiaFechamento" ColumnName="DiaFechamento" />
+                <ScalarProperty Name="DiaVencimento" ColumnName="DiaVencimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaCobrancaBancaria)">
+              <MappingFragment StoreEntitySet="ContaCobrancaBancaria">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="BancoId" ColumnName="BancoId" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="NumeroConta" ColumnName="NumeroConta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaDinheiro)">
+              <MappingFragment StoreEntitySet="ContaDinheiro">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaInvestimento)">
+              <MappingFragment StoreEntitySet="ContaInvestimento">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaPoupanca)">
+              <MappingFragment StoreEntitySet="ContaPoupanca">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="BancoId" ColumnName="BancoId" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="NumeroConta" ColumnName="NumeroConta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.ContaCorrente)">
+              <MappingFragment StoreEntitySet="ContaCorrente">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="BancoId" ColumnName="BancoId" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="NumeroConta" ColumnName="NumeroConta" />
+                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+                <ScalarProperty Name="LimiteVencimento" ColumnName="LimiteVencimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrupoConta">
+            <EntityTypeMapping TypeName="RThomazDbModel.GrupoConta">
+              <MappingFragment StoreEntitySet="GrupoConta">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="GrupoContaId" ColumnName="GrupoContaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Email">
+            <EntityTypeMapping TypeName="RThomazDbModel.Email">
+              <MappingFragment StoreEntitySet="Email">
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoEmailId" ColumnName="TipoEmailId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endereco">
+            <EntityTypeMapping TypeName="RThomazDbModel.Endereco">
+              <MappingFragment StoreEntitySet="Endereco">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+                <ScalarProperty Name="CidadeId" ColumnName="CidadeId" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoEnderecoId" ColumnName="TipoEnderecoId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="EnderecoId" ColumnName="EnderecoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomePage">
+            <EntityTypeMapping TypeName="RThomazDbModel.HomePage">
+              <MappingFragment StoreEntitySet="HomePage">
+                <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoHomePageId" ColumnName="TipoHomePageId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="HomePageId" ColumnName="HomePageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.Pessoa)">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.PessoaFisica)">
+              <MappingFragment StoreEntitySet="PessoaFisica">
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.PessoaJuridica)">
+              <MappingFragment StoreEntitySet="PessoaJuridica">
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="NomeFantasia" ColumnName="NomeFantasia" />
+                <ScalarProperty Name="RazaoSocial" ColumnName="RazaoSocial" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="InscricaoEstadual" ColumnName="InscricaoEstadual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefone">
+            <EntityTypeMapping TypeName="RThomazDbModel.Telefone">
+              <MappingFragment StoreEntitySet="Telefone">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoTelefoneId" ColumnName="TipoTelefoneId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="TelefoneId" ColumnName="TelefoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEmail">
+            <EntityTypeMapping TypeName="RThomazDbModel.TipoEmail">
+              <MappingFragment StoreEntitySet="TipoEmail">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoEmailId" ColumnName="TipoEmailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEndereco">
+            <EntityTypeMapping TypeName="RThomazDbModel.TipoEndereco">
+              <MappingFragment StoreEntitySet="TipoEndereco">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoEnderecoId" ColumnName="TipoEnderecoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoHomePage">
+            <EntityTypeMapping TypeName="RThomazDbModel.TipoHomePage">
+              <MappingFragment StoreEntitySet="TipoHomePage">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoHomePageId" ColumnName="TipoHomePageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTelefone">
+            <EntityTypeMapping TypeName="RThomazDbModel.TipoTelefone">
+              <MappingFragment StoreEntitySet="TipoTelefone">
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="TipoTelefoneId" ColumnName="TipoTelefoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lancamento">
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.Lancamento)">
+              <MappingFragment StoreEntitySet="Lancamento">
+                <ScalarProperty Name="TipoLancamentoId" ColumnName="TipoLancamentoId" />
+                <ScalarProperty Name="LancamentoId" ColumnName="LancamentoId" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="Historico" ColumnName="Historico" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="ValorLancamento" ColumnName="ValorLancamento" />
+                <ScalarProperty Name="DataLancamento" ColumnName="DataLancamento" />
+                <ScalarProperty Name="TipoPessoaId" ColumnName="TipoPessoaId" />
+                <ScalarProperty Name="PessoaId" ColumnName="PessoaId" />
+                <ScalarProperty Name="TipoContaId" ColumnName="TipoContaId" />
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.LancamentoDespesa)">
+              <MappingFragment StoreEntitySet="LancamentoDespesa">
+                <ScalarProperty Name="LancamentoId" ColumnName="LancamentoId" />
+                <ScalarProperty Name="TipoLancamentoId" ColumnName="TipoLancamentoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(RThomazDbModel.LancamentoReceita)">
+              <MappingFragment StoreEntitySet="LancamentoReceita">
+                <ScalarProperty Name="LancamentoId" ColumnName="LancamentoId" />
+                <ScalarProperty Name="TipoLancamentoId" ColumnName="TipoLancamentoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model" ZoomLevel="94">
+        <EntityTypeShape EntityType="RThomazDbModel.Cidade" Width="1.5" PointX="25.25" PointY="4.5" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="RThomazDbModel.Estado" Width="1.5" PointX="27.375" PointY="4.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="RThomazDbModel.Pais" Width="1.5" PointX="27.375" PointY="2" Height="1.7879850260416674" />
+        <AssociationConnector Association="RThomazDbModel.FK_Cidade_Estado" >
+          <ConnectorPoint PointX="27.375" PointY="5.5862939453125" />
+          <ConnectorPoint PointX="26.75" PointY="5.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Estado_Pais" >
+          <ConnectorPoint PointX="28.125" PointY="3.7879850260416674" />
+          <ConnectorPoint PointX="28.125" PointY="4.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.Usuario" Width="1.5" PointX="7.25" PointY="4.25" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="RThomazDbModel.Banco" Width="2.125" PointX="6.125" PointY="20.875" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="RThomazDbModel.Conta" Width="2" PointX="10" PointY="12.625" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="RThomazDbModel.ContaCartaoCredito" Width="2" PointX="4.125" PointY="16.75" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="RThomazDbModel.ContaCobrancaBancaria" Width="2" PointX="6.375" PointY="16.75" Height="1.787985026041671" />
+        <EntityTypeShape EntityType="RThomazDbModel.ContaDinheiro" Width="2" PointX="10.875" PointY="16.75" Height="1.0187792968750031" />
+        <EntityTypeShape EntityType="RThomazDbModel.ContaInvestimento" Width="2" PointX="13.125" PointY="16.75" Height="1.0187792968750031" />
+        <EntityTypeShape EntityType="RThomazDbModel.ContaPoupanca" Width="2" PointX="15.375" PointY="16.75" Height="1.787985026041671" />
+        <EntityTypeShape EntityType="RThomazDbModel.GrupoConta" Width="1.5" PointX="7.5" PointY="12.625" Height="1.9802864583333246" />
+        <AssociationConnector Association="RThomazDbModel.FK_ContaCartaoCredito_Banco" >
+          <ConnectorPoint PointX="6.125" PointY="22.24974609375" />
+          <ConnectorPoint PointX="5.09375" PointY="22.24974609375" />
+          <ConnectorPoint PointX="5.09375" PointY="19.307190755208335" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_ContaCobrancaBancaria_Banco" >
+          <ConnectorPoint PointX="7.3125" PointY="20.875" />
+          <ConnectorPoint PointX="7.3125" PointY="18.537985026041671" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_ContaPoupanca_Banco" >
+          <ConnectorPoint PointX="8.25" PointY="22.593242187500007" />
+          <ConnectorPoint PointX="16.375" PointY="22.593242187500007" />
+          <ConnectorPoint PointX="16.375" PointY="18.537985026041671" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Conta_GrupoConta" >
+          <ConnectorPoint PointX="9" PointY="13.615143229166662" />
+          <ConnectorPoint PointX="10" PointY="13.615143229166662" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaCartaoCredito" >
+          <ConnectorPoint PointX="11" PointY="15.566793619791666" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="5.125" PointY="16.375" />
+          <ConnectorPoint PointX="5.125" PointY="16.75" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaCobrancaBancaria" >
+          <ConnectorPoint PointX="11" PointY="15.566793619791666" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="7.375" PointY="16.375" />
+          <ConnectorPoint PointX="7.375" PointY="16.75" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaDinheiro" >
+          <ConnectorPoint PointX="11" PointY="15.759095052083332" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="11.875" PointY="16.375" />
+          <ConnectorPoint PointX="11.875" PointY="16.75" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaInvestimento" >
+          <ConnectorPoint PointX="11" PointY="15.759095052083332" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="14.125" PointY="16.375" />
+          <ConnectorPoint PointX="14.125" PointY="16.75" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaPoupanca" >
+          <ConnectorPoint PointX="11" PointY="15.759095052083332" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="16.375" PointY="16.375" />
+          <ConnectorPoint PointX="16.375" PointY="16.75" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.Email" Width="1.5" PointX="17.5" PointY="3.875" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="RThomazDbModel.Endereco" Width="1.5" PointX="22.75" PointY="3.875" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="RThomazDbModel.HomePage" Width="1.5" PointX="21" PointY="3.875" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="RThomazDbModel.Pessoa" Width="1.5" PointX="20" PointY="8.375" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="RThomazDbModel.PessoaFisica" Width="1.5" PointX="17.75" PointY="10.25" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="RThomazDbModel.Telefone" Width="1.5" PointX="19.25" PointY="3.875" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="RThomazDbModel.TipoEmail" Width="1.5" PointX="17.5" PointY="1.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="RThomazDbModel.TipoEndereco" Width="1.5" PointX="22.75" PointY="1.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="RThomazDbModel.TipoHomePage" Width="1.5" PointX="21" PointY="1.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="RThomazDbModel.TipoTelefone" Width="1.5" PointX="19.25" PointY="1.125" Height="1.9802864583333246" />
+        <AssociationConnector Association="RThomazDbModel.FK_Endereco_Cidade" >
+          <ConnectorPoint PointX="25.25" PointY="5.5862939453125" />
+          <ConnectorPoint PointX="24.25" PointY="5.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Email_Pessoa" >
+          <ConnectorPoint PointX="20" PointY="9.28125" />
+          <ConnectorPoint PointX="17.59375" PointY="9.28125" />
+          <ConnectorPoint PointX="17.59375" PointY="6.4321907552083335" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Email_TipoEmail" >
+          <ConnectorPoint PointX="18.25" PointY="3.1052864583333246" />
+          <ConnectorPoint PointX="18.25" PointY="3.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Endereco_Pessoa" >
+          <ConnectorPoint PointX="20.875" PointY="8.375" />
+          <ConnectorPoint PointX="20.875" PointY="6.9441943359375031" />
+          <ConnectorPoint PointX="21.166666666666668" PointY="6.9441943359375022" />
+          <ConnectorPoint PointX="21.333333333333332" PointY="6.9441943359375031" />
+          <ConnectorPoint PointX="22.75" PointY="6.9441943359375031" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Endereco_TipoEndereco" >
+          <ConnectorPoint PointX="23.5" PointY="3.1052864583333246" />
+          <ConnectorPoint PointX="23.5" PointY="3.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_HomePage_Pessoa" >
+          <ConnectorPoint PointX="21.25" PointY="8.375" />
+          <ConnectorPoint PointX="21.25" PointY="6.4321907552083335" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_HomePage_TipoHomePage" >
+          <ConnectorPoint PointX="21.75" PointY="3.1052864583333246" />
+          <ConnectorPoint PointX="21.75" PointY="3.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Telefone_Pessoa" >
+          <ConnectorPoint PointX="20.375" PointY="8.375" />
+          <ConnectorPoint PointX="20.375" PointY="6.4321907552083388" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Telefone_TipoTelefone" >
+          <ConnectorPoint PointX="20" PointY="3.1052864583333246" />
+          <ConnectorPoint PointX="20" PointY="3.875" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.PessoaFisica" >
+          <ConnectorPoint PointX="20" PointY="10.244492162369784" />
+          <ConnectorPoint PointX="19.625" PointY="10.244492162369784" />
+          <ConnectorPoint PointX="19.625" PointY="11.240143229166666" />
+          <ConnectorPoint PointX="19.25" PointY="11.240143229166666" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.Lancamento" Width="1.75" PointX="22.25" PointY="13" Height="3.903300781249996" />
+        <AssociationConnector Association="RThomazDbModel.FK_Lancamento_Conta" >
+          <ConnectorPoint PointX="12" PointY="14.87714580365714" />
+          <ConnectorPoint PointX="22.25" PointY="14.87714580365714" />
+        </AssociationConnector>
+        <AssociationConnector Association="RThomazDbModel.FK_Lancamento_Pessoa" >
+          <ConnectorPoint PointX="20.75" PointY="11.1244921875" />
+          <ConnectorPoint PointX="20.75" PointY="13.870196555230946" />
+          <ConnectorPoint PointX="22.25" PointY="13.870196555230946" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.LancamentoDespesa" Width="1.75" PointX="24.75" PointY="13" Height="1.0187792968749996" />
+        <EntityTypeShape EntityType="RThomazDbModel.LancamentoReceita" Width="1.75" PointX="24.75" PointY="15.375" Height="1.0187792968750031" />
+        <InheritanceConnector EntityType="RThomazDbModel.LancamentoDespesa" >
+          <ConnectorPoint PointX="24" PointY="13.5093896484375" />
+          <ConnectorPoint PointX="24.75" PointY="13.5093896484375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.LancamentoReceita" >
+          <ConnectorPoint PointX="24" PointY="15.884389648437502" />
+          <ConnectorPoint PointX="24.75" PointY="15.884389648437502" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.ContaCorrente" Width="2" PointX="8.625" PointY="16.75" Height="2.1725878906250031" />
+        <AssociationConnector Association="RThomazDbModel.FK_ContaCorrente_Banco" >
+          <ConnectorPoint PointX="6.25" PointY="20.875" />
+          <ConnectorPoint PointX="6.25" PointY="18.761536458333335" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="18.761536458333335" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="18.761536458333335" />
+          <ConnectorPoint PointX="8.625" PointY="18.761536458333335" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="RThomazDbModel.ContaCorrente" >
+          <ConnectorPoint PointX="11" PointY="15.566793619791666" />
+          <ConnectorPoint PointX="11" PointY="16.375" />
+          <ConnectorPoint PointX="9.625" PointY="16.375" />
+          <ConnectorPoint PointX="9.625" PointY="16.75" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RThomazDbModel.PessoaJuridica" Width="1.5" PointX="22.25" PointY="8.625" Height="1.7879850260416657" />
+        <InheritanceConnector EntityType="RThomazDbModel.PessoaJuridica" >
+          <ConnectorPoint PointX="21.5" PointY="9.5189925130208337" />
+          <ConnectorPoint PointX="22.25" PointY="9.5189925130208337" />
+        </InheritanceConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

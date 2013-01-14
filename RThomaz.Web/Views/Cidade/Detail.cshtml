@@ -1,0 +1,89 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Resources
+@using RThomaz.Web.Content.Resources
+
+@model RThomaz.Web.Models.CidadeDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@CidadeResource.LegendDefault</legend>
+                
+        @if (Model.Entity.CidadeId == 0)
+        {
+            @Html.Hidden("model.Entity.CidadeId", Model.Entity.CidadeId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.CidadeId", @Model.Entity.CidadeId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(CidadeResource.PaisTitle)
+            @if (Model.Entity.CidadeId == 0)
+            {
+                <select id="model.SelectedPaisId" name="model.SelectedPaisId" onchange="form.submit();" class="fieldMedium">
+                    <option value="">@CidadeResource.DropDownPaisDefaultOption</option>
+                    @foreach (Pais pais in Model.Paises)
+                    {
+                        if (Model.SelectedPaisId == pais.PaisId)
+                        {
+                            <option selected="selected" value="@pais.PaisId">@pais.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@pais.PaisId">@pais.Nome</option>
+                        }
+                    }
+                </select>  
+            }
+            else
+            {
+                @Html.TextBox("model.Entity.Estado.Pais.Nome", Model.Entity.Estado.Pais.Nome, new { @class = "fieldMedium", @readonly = "readonly" })
+            }                
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(CidadeResource.EstadoTitle)
+            @if (Model.Entity.CidadeId == 0)
+            {
+                <select id="model.SelectedEstadoId" name="model.SelectedEstadoId" class="fieldMedium">
+                    <option value="">@CidadeResource.DropDownEstadoDefaultOption</option>
+                    @foreach (Estado estado in Model.Estados)
+                    {
+                        if (Model.SelectedEstadoId == estado.EstadoId)
+                        {
+                            <option selected="selected" value="@estado.EstadoId">@estado.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@estado.EstadoId">@estado.Nome</option>
+                        }
+                    }
+                </select>  
+            }
+            else
+            {
+                @Html.TextBox("model.Entity.Estado.Nome", Model.Entity.Estado.Nome, new { @class = "fieldMedium", @readonly = "readonly" })
+            }                
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(CidadeResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}

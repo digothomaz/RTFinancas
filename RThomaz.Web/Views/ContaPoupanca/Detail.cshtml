@@ -1,0 +1,58 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model ContaPoupancaDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    @Html.Partial("_ContaCommonDetailLayout")     
+    
+    <fieldset>                    
+
+        <legend>@ContaPoupancaResource.LegendDefault</legend>
+        
+        <div class="FormFieldStyle">
+            @Html.Label(ContaPoupancaResource.BancoTitle)
+            <select id="model.SelectedBancoId" name="model.SelectedBancoId" class="fieldMedium">
+                <option value="">@ContaPoupancaResource.DropDownBancoDefaultOption</option>
+                @foreach (Banco banco in Model.Bancos)
+                {
+                    if (Model.SelectedBancoId == banco.BancoId)
+                    {
+                        <option selected="selected" value="@banco.BancoId">@banco.Nome</option>
+                    }
+                    else
+                    {
+                        <option value="@banco.BancoId">@banco.Nome</option>
+                    }
+                }
+            </select>             
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaPoupancaResource.AgenciaTitle)
+            @Html.TextBox("Model.Entity.Agencia", Model.Entity.Agencia, new { @class = "fieldSmall" })     
+        </div>  
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaPoupancaResource.NumeroContaTitle)
+            @Html.TextBox("Model.Entity.NumeroConta", Model.Entity.NumeroConta, new { @class = "fieldSmall" })     
+        </div>  
+
+    </fieldset>  
+    
+    <fieldset>                    
+
+        @Html.Partial("_DetailFooterLayout")  
+        
+    </fieldset>       
+    
+}

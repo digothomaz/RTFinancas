@@ -1,0 +1,68 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model PessoaFisicaDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@PessoaFisicaResource.LegendDefault</legend>
+        
+        @if (Model.Entity.PessoaId == 0)
+        {
+            @Html.Hidden("model.Entity.PessoaId", Model.Entity.PessoaId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.PessoaId", @Model.Entity.PessoaId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(PessoaFisicaResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldLarge" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(PessoaFisicaResource.RGTitle)
+            @Html.TextBox("Model.Entity.RG", Model.Entity.RG, new { @class = "fieldMedium" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(PessoaFisicaResource.CPFTitle)
+            @Html.TextBox("Model.Entity.CPF", Model.Entity.CPF, new { @class = "fieldMedium" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(PessoaFisicaResource.DataNascimentoTitle)
+            @Html.TextBox("Model.Entity.DataNascimento", Model.Entity.DataNascimento.HasValue ? Model.Entity.DataNascimento.Value.ToShortDateString() : null, new { @class = "fieldSmall datepicker" })     
+        </div>                
+
+        <div class="FormFieldStyle">
+            @Html.Label(PessoaFisicaResource.SexoTitle)
+            @Html.RadioButton("model.Entity.Sexo", (byte)Sexo.Masculino, Model.Entity.Sexo == (byte)Sexo.Masculino) <span>@{ var masculino = EnumHelper.GetEnumDescription<Sexo>((byte)Sexo.Masculino); }@masculino</span> 
+            @Html.RadioButton("model.Entity.Sexo", (byte)Sexo.Feminino, Model.Entity.Sexo == (byte)Sexo.Feminino) <span>@{ var feminino = EnumHelper.GetEnumDescription<Sexo>((byte)Sexo.Feminino); }@feminino</span> 
+        </div>
+
+        <br />
+
+        @Html.Partial("_PessoaCommonDetailLayout")     
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>      
+    
+}

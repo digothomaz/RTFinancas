@@ -1,0 +1,15 @@
+﻿.IndexGroupFilterDivStyle
+{
+    margin-bottom:10px;
+}
+
+.IndexFilterDivStyle
+{
+    display: inline;
+}
+
+.IndexFilterDivStyle label
+{
+    font-weight:bold;
+}
+

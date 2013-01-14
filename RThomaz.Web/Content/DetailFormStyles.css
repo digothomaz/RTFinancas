@@ -1,0 +1,33 @@
+﻿.fieldLittle { width: 5%;}
+.fieldSmall { width: 15%;}
+.fieldMedium { width: 35%;}
+.fieldHalf { width: 50%;}
+.fieldLarge { width: 75%;}
+.fieldFull {width: 100%;}
+
+.fieldLittleFixed { width: 25px;}
+.fieldSmallFixed { width: 50px;}
+.fieldMediumFixed { width: 75px;}
+.fieldHalfFixed { width: 100px;}
+.fieldLargeFixed { width: 125px;}
+.fieldFullFixed {width: 150px;}
+
+.fieldDescription 
+{
+    width: 100%;
+    height: 100px;
+}
+
+.FormFieldStyle
+{
+    
+}
+
+.FormFieldStyle label
+{
+    font-weight: bold;
+    margin: 5px 0;
+    display: block;
+    outline: none;
+    color: black;
+}

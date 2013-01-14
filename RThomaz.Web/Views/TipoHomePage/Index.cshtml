@@ -1,0 +1,88 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model TipoHomePageIndexModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(TipoHomePageResource.FilterTipoPessoaTitle)            
+                <select id="tipoPessoaId" name="tipoPessoaId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (KeyValuePair<byte, string> tipoPessoa in Model.ListOfTipoPessoa)
+                    {
+                        if (Model.SelectedTipoPessoaId == tipoPessoa.Key)
+                        {
+                            <option selected="selected" value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>      
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @TipoEmailResource.TipoPessoaTitle
+                    </th>
+                    <th>
+                        @TipoHomePageResource.NomeTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.TipoHomePageId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @{ var tipoPessoa = EnumHelper.GetEnumDescription<TipoPessoa>(item.TipoPessoaId); }
+                            @tipoPessoa
+                        </td> 
+                        <td>
+                            @item.Nome
+                        </td> 
+                        <td class="IndexDataTableTdDetailStyle">
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, "Detail", new { id = item.TipoHomePageId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input onclick="window.location='@Url.Action("Detail", Model.ControllerName)'" type="button" value="@CommonResource.ButtonNewTitle" class="buttonSmall"/>  
+
+    </fieldset>
+}

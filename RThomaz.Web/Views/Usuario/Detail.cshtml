@@ -1,0 +1,81 @@
+﻿@using RThomaz.Web.Resources
+@using RThomaz.Web.Content.Resources
+
+@model RThomaz.Web.Models.UsuarioDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>            
+
+        <legend>@UsuarioResource.LegendDefault</legend>
+        
+        @if (Model.Entity.UsuarioId == 0)
+        {
+            @Html.Hidden("model.Entity.UsuarioId", Model.Entity.UsuarioId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.UsuarioId", @Model.Entity.UsuarioId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }
+
+        <div class="FormFieldStyle">        
+            @Html.Label(UsuarioResource.NomeTitle)
+            @{
+        string nome = Model.Entity.Nome;
+
+        if (Model.Entity.UsuarioId == 0)
+        {
+                    @Html.TextBox("model.Entity.Nome", nome, new { @class = "fieldMedium" })
+        }
+        else
+        {
+                    @Html.TextBox("model.Entity.Nome", nome, new { @class = "fieldMedium", @readonly = "readonly" })
+        }    
+            }            
+        </div>
+
+        <div class="FormFieldStyle">
+            @Html.Label(UsuarioResource.EmailTitle)
+            @{
+        string email = Model.Entity.Email;
+
+        if (Model.Entity.UsuarioId == 0)
+        {
+                    @Html.TextBox("model.Entity.Email", email, new { @class = "fieldMedium" })
+        }
+        else
+        {
+                    @Html.TextBox("model.Entity.Email", email, new { @class = "fieldMedium", @readonly = "readonly" })
+        }    
+            }                  
+        </div>
+
+        <div class="FormFieldStyle">
+            @Html.Label(UsuarioResource.SenhaTitle)
+            @Html.Password("model.Entity.Senha", Model.Entity.Senha, new { @class = "fieldMedium" })       
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(UsuarioResource.ConfirmacaoSenhaTitle)
+            @Html.Password("model.ConfirmacaoSenha", Model.ConfirmacaoSenha, new { @class = "fieldMedium" })        
+        </div>                
+
+        <div class="FormFieldStyle">
+            @Html.Label(UsuarioResource.AtivoTitle)
+            @Html.RadioButton("model.Entity.Ativo", true, Model.Entity.Ativo == true) <span>@UsuarioResource.AtivoTrueTitle</span> 
+            @Html.RadioButton("model.Entity.Ativo", false, Model.Entity.Ativo == false) <span>@UsuarioResource.AtivoFalseTitle</span>
+        </div>
+
+        @Html.Partial("_DetailFooterLayout") 
+
+    </fieldset>
+}

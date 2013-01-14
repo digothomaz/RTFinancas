@@ -1,0 +1,69 @@
+﻿@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Resources
+@using RThomaz.Web.Content.Resources
+
+@model RThomaz.Web.Models.TipoHomePageDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@TipoHomePageResource.LegendDefault</legend>
+                
+        @if (Model.Entity.TipoHomePageId == 0)
+        {
+            @Html.Hidden("model.Entity.TipoHomePageId", Model.Entity.TipoHomePageId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.TipoHomePageId", @Model.Entity.TipoHomePageId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(TipoHomePageResource.TipoPessoaTitle)
+            @if (Model.Entity.TipoHomePageId == 0)
+            {
+                <select id="model.SelectedTipoPessoaId" name="model.SelectedTipoPessoaId" class="fieldMedium">
+                    <option value="">@TipoHomePageResource.DropDownTipoPessoaDefaultOption</option>
+                    @foreach (KeyValuePair<byte, string> tipoPessoa in Model.ListOfTipoPessoa)
+                    {
+                        if (Model.SelectedTipoPessoaId == tipoPessoa.Key)
+                        {
+                            <option selected="selected" value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoPessoa.Key">@tipoPessoa.Value</option>
+                        }
+                    }
+                </select>  
+            }
+            else
+            {
+                @Html.Hidden("model.SelectedTipoPessoaId", Model.Entity.TipoPessoaId)
+                <select disabled="disabled" class="fieldMedium">
+                    @{ var tipoPessoaDescription = EnumHelper.GetEnumDescription<TipoPessoa>(Model.SelectedTipoPessoaId); }
+                    <option selected="selected">@tipoPessoaDescription</option>
+                </select>                  
+            }                
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(TipoHomePageResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}

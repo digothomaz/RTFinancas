@@ -1,0 +1,20 @@
+﻿@using RThomaz.Web.Content.Resources
+
+<table class="HeaderTableStyle">
+    <tr>
+        <td class="TdApplicationTitle">
+            @HeaderResource.ApplicatyionTitle
+        </td>
+        <td class="TdLogOnStyle">
+            @if(Request.IsAuthenticated) 
+            {
+                <text>@string.Format(HeaderResource.WelcomeMessage, User.Identity.Name)
+                [ @Html.ActionLink(HeaderResource.LogOffTitle, "LogOff", "Account") ]</text>
+            }
+            else 
+            {
+                @:[ @Html.ActionLink(HeaderResource.LogOnTitle, "LogOn", "Account") ]
+            }
+        </td>
+    </tr>
+</table>

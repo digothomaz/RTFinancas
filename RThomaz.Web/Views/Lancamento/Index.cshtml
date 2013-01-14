@@ -1,0 +1,98 @@
+﻿@using RThomaz.Data
+@using RThomaz.Data.Common
+@using RThomaz.Data.Enums
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model LancamentoIndexModel
+  
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+           
+@using (Html.BeginForm("Index", (string)Model.ControllerName + @"/", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{  
+    <fieldset>
+        
+        @Html.Partial("_IndexHeaderLayout")         
+
+        <div class="IndexGroupFilterDivStyle">
+
+            <div class="IndexFilterDivStyle">        
+                @Html.Label(LancamentoResource.FilterTipoLancamentoTitle)            
+                <select id="tipoLancamentoId" name="tipoLancamentoId" onchange="form.submit();">
+                    <option value="">@CommonResource.FilterAllDescription</option>
+                    @foreach (KeyValuePair<byte, string> tipoLancamento in Model.ListOfTipoLancamento)
+                    {
+                        if (Model.SelectedTipoLancamentoId == tipoLancamento.Key)
+                        {
+                            <option selected="selected" value="@tipoLancamento.Key">@tipoLancamento.Value</option>
+                        }
+                        else
+                        {
+                            <option value="@tipoLancamento.Key">@tipoLancamento.Value</option>
+                        }
+                    }
+                </select>  
+            </div>
+
+        </div>        
+
+        <table class="IndexDataTableStyle">
+            <thead class="IndexDataTableTheadStyle">
+                <tr>
+                    <th>
+                        @CommonResource.FieldIdTitle
+                    </th>
+                    <th>
+                        @LancamentoResource.TipoLancamentoTitle
+                    </th>
+                    <th></th>          
+                </tr>
+            </thead>
+            <tbody>
+                @{var alternativeRow = false; }
+                @foreach (var item in Model.PagedList.Entities)
+                {
+                    var rowClass = !alternativeRow ? "IndexDataTableTrNormalStyle" : "IndexDataTableTrAlternativeStyle";
+                    alternativeRow = !alternativeRow;
+                    
+                    <tr class="@rowClass">
+                        <td class="IndexDataTableTdIdStyle">
+                            @item.LancamentoId.ToString(CommonResource.FieldIdFormat)
+                        </td>
+                        <td>
+                            @{ var tipoLancamentoDescription = EnumHelper.GetEnumDescription<TipoLancamento>(item.TipoLancamentoId); }
+                            @tipoLancamentoDescription
+                        </td>                         
+                        <td class="IndexDataTableTdDetailStyle">
+                            @{
+                                string acao = string.Empty;
+
+                                switch ((TipoLancamento)item.TipoLancamentoId)
+                                {
+                                    case TipoLancamento.Despesa:
+                                        acao = "../LancamentoDespesa/Detail";
+                                        break;
+                                    case TipoLancamento.Receita:
+                                        acao = "../LancamentoReceita/Detail";
+                                        break;
+                                    default:
+                                        break;
+                                }                                                                    
+                            }
+                            @Html.ActionLink(IndexContentResource.EditButtonTitle, acao, new { id = item.LancamentoId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @Html.Partial("_IndexFooterLayout")
+
+        <input onclick="window.location='@Url.Action("Detail", "LancamentoReceita")'" type="button" value="@LancamentoResource.NovoLancamentoReceitaTitle"/>  
+        <input onclick="window.location='@Url.Action("Detail", "LancamentoDespesa")'" type="button" value="@LancamentoResource.NovoLancamentoDespesaTitle"/>  
+
+    </fieldset>
+}

@@ -1,0 +1,67 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+           
+<fieldset>                    
+
+        <legend>@ContaResource.LegendDefault</legend>
+                
+        @if (Model.Entity.ContaId == 0)
+        {
+            @Html.Hidden("model.Entity.ContaId", ((Conta)Model.Entity).ContaId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.ContaId", ((Conta)Model.Entity).ContaId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }                            
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", ((Conta)Model.Entity).Nome, new { @class = "fieldMedium" })     
+        </div>   
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaResource.GrupoContaTitle)
+            <select id="model.SelectedGrupoContaId" name="model.SelectedGrupoContaId" class="fieldMedium">
+                <option value="">@ContaResource.DropDownGrupoContaDefaultOption</option>
+                @foreach (GrupoConta grupoConta in Model.ListOfGrupoConta)
+                {
+                    if (Model.SelectedGrupoContaId == grupoConta.GrupoContaId)
+                    {
+                        <option selected="selected" value="@grupoConta.GrupoContaId">@grupoConta.Nome</option>
+                    }
+                    else
+                    {
+                        <option value="@grupoConta.GrupoContaId">@grupoConta.Nome</option>
+                    }
+                }
+            </select>       
+        </div>                 
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaResource.AtivoTitle)
+            @Html.RadioButton("model.Entity.Ativo", true, ((Conta)Model.Entity).Ativo == true) <span>@ContaResource.AtivoTrueTitle</span> 
+            @Html.RadioButton("model.Entity.Ativo", false, ((Conta)Model.Entity).Ativo == false) <span>@ContaResource.AtivoFalseTitle</span>
+        </div>
+
+    </fieldset>  
+    
+    <fieldset>                    
+
+        <legend>@ContaResource.LegendSaldoAbertura</legend>
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaResource.SaldoAberturaDataTitle)
+            @Html.TextBox("Model.Entity.SaldoAberturaData", ((Conta)Model.Entity).SaldoAberturaData.ToShortDateString(), new { @class = "fieldSmall datepicker" })     
+        </div>    
+
+        <div class="FormFieldStyle">
+            @Html.Label(ContaResource.SaldoAberturaValorTitle)
+            @Html.TextBox("Model.Entity.SaldoAberturaValor", ((Conta)Model.Entity).SaldoAberturaValor, new { @class = "fieldSmall" })     
+        </div>    
+        
+    </fieldset> 

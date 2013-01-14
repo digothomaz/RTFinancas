@@ -1,0 +1,30 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model ContaDinheiroDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    @Html.Partial("_ContaCommonDetailLayout")     
+    
+    @*<fieldset>                    
+
+        <legend>@ContaDinheiroResource.LegendDefault</legend>
+        
+    </fieldset>  *@
+    
+    <fieldset>                    
+
+        @Html.Partial("_DetailFooterLayout")  
+        
+    </fieldset>       
+    
+}

@@ -1,0 +1,70 @@
+﻿@using RThomaz.Data
+@using RThomaz.Web.Content.Resources
+@using RThomaz.Web.Models
+@using RThomaz.Web.Resources
+
+@model EstadoDetailModel
+
+@{
+    ViewBag.Title = String.Format(CommonResource.ViewBagTitle, Model.Title);
+}
+
+@using (Html.BeginForm("Detail", Model.ControllerName, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Partial("_DetailHeaderLayout")      
+    
+    <fieldset>                    
+
+        <legend>@EstadoResource.LegendDefault</legend>
+                
+        @if (Model.Entity.EstadoId == 0)
+        {
+            @Html.Hidden("model.Entity.EstadoId", Model.Entity.EstadoId)             
+        }
+        else
+        {
+            <div class="FormFieldStyle">
+                @Html.Label(CommonResource.FieldIdTitle)
+                @Html.TextBox("model.Entity.EstadoId", @Model.Entity.EstadoId.ToString(CommonResource.FieldIdFormat), new { @class = "fieldMedium", @readonly = "readonly" })
+            </div>
+        }               
+
+        <div class="FormFieldStyle">
+            @Html.Label(EstadoResource.PaisTitle)
+            @if (Model.Entity.EstadoId == 0)
+            {
+                <select id="model.SelectedPaisId" name="model.SelectedPaisId" class="fieldMedium">
+                    <option value="">@EstadoResource.DropDownPaisDefaultOption</option>
+                    @foreach (Pais pais in Model.Paises)
+                    {
+                        if (Model.SelectedPaisId == pais.PaisId)
+                        {
+                            <option selected="selected" value="@pais.PaisId">@pais.Nome</option>
+                        }
+                        else
+                        {
+                            <option value="@pais.PaisId">@pais.Nome</option>
+                        }
+                    }
+                </select>  
+            }
+            else
+            {
+                @Html.TextBox("model.Entity.Pais.Nome", Model.Entity.Pais.Nome, new { @class = "fieldMedium", @readonly = "readonly" })
+            }                
+        </div> 
+
+        <div class="FormFieldStyle">
+            @Html.Label(EstadoResource.NomeTitle)
+            @Html.TextBox("Model.Entity.Nome", Model.Entity.Nome, new { @class = "fieldMedium" })     
+        </div>        
+
+        <div class="FormFieldStyle">
+            @Html.Label(EstadoResource.UFTitle)
+            @Html.TextBox("Model.Entity.UF", Model.Entity.UF, new { @class = "fieldSmall" })     
+        </div>        
+
+        @Html.Partial("_DetailFooterLayout")  
+
+    </fieldset>    
+}
